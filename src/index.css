@@ -1,0 +1,96 @@
+:root {
+  --standard-border: 1px solid lightgrey;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: 100px auto;
+  box-shadow: 0 10px 10px -6px black;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  border: var(--standard-border);
+}
+
+form {
+  width: 100%;
+}
+
+.task-input {
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+  border: var(--standard-border);
+}
+
+.task-input::placeholder {
+  font-style: italic;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  border: var(--standard-border);
+  width: 100%;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.more-icon {
+  margin-left: auto;
+  width: 30px;
+}
+
+.delete-icon {
+  margin-left: auto;
+  width: 25px;
+  display: none;
+}
+
+.checkbox {
+  margin: 0 10px 0 0;
+  height: 15px;
+  width: 15px;
+}
+
+.task-description {
+  width: 80%;
+  background-color: transparent;
+  border: 0;
+}
+
+.task-description:disabled {
+  border: 0 solid white;
+  background-color: white;
+  color: black;
+}
+
+.task-description:focus {
+  outline: none;
+}
+
+.clear-button {
+  width: 100%;
+  padding: 15px;
+  color: gray;
+}
