@@ -12,7 +12,7 @@ export default class Collection {
       completed,
       index,
     });
-    this.saveInLocalStorage()
+    this.saveInLocalStorage();
   };
 
   removeItem = (index) => {
@@ -20,7 +20,7 @@ export default class Collection {
     this.items.splice(arrayIndexToDelete, 1);
     const newItems = this.items.map((item, index) => ({ ...item, index: index + 1 }));
     this.items = newItems;
-    this.saveInLocalStorage()
+    this.saveInLocalStorage();
   };
 
   updateItem = (index, property, value) => {
@@ -40,7 +40,7 @@ export default class Collection {
     this.items = this.items.filter((item) => item.completed === false);
     const newItems = this.items.map((item, index) => ({ ...item, index: index + 1 }));
     this.items = newItems;
-    this.saveInLocalStorage()
+    this.saveInLocalStorage();
   }
 
   saveInLocalStorage = () => {
