@@ -12,8 +12,7 @@ export default class Collection {
       completed,
       index,
     });
-    this.items.sort((a, b) => a.index - b.index);
-    localStorage.setItem(this.localStorageItem, JSON.stringify(this.items));
+    this.saveInLocalStorage()
   };
 
   removeItem = (index) => {
@@ -21,8 +20,7 @@ export default class Collection {
     this.items.splice(arrayIndexToDelete, 1);
     const newItems = this.items.map((item, index) => ({ ...item, index: index + 1 }));
     this.items = newItems;
-    this.items.sort((a, b) => a.index - b.index);
-    localStorage.setItem(this.localStorageItem, JSON.stringify(this.items));
+    this.saveInLocalStorage()
   };
 
   updateItem = (index, property, value) => {
@@ -33,7 +31,7 @@ export default class Collection {
       return item;
     });
     this.items = newItems;
-    localStorage.setItem(this.localStorageItem, JSON.stringify(this.items));
+    this.saveInLocalStorage();
   };
 
   getItems = () => this.items.sort((a, b) => a.index - b.index);
@@ -42,6 +40,10 @@ export default class Collection {
     this.items = this.items.filter((item) => item.completed === false);
     const newItems = this.items.map((item, index) => ({ ...item, index: index + 1 }));
     this.items = newItems;
+    this.saveInLocalStorage()
+  }
+
+  saveInLocalStorage = () => {
     this.items.sort((a, b) => a.index - b.index);
     localStorage.setItem(this.localStorageItem, JSON.stringify(this.items));
   }
